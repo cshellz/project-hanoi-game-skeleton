@@ -1,9 +1,59 @@
 class HanoiGame {
-  constructor() {}
+  constructor(arg = [ [3, 2, 1], [], [] ] ) {
+    //console.log(this.arg)
+    //this.towers();
+    this.towers = arg;
+    // if (arg) { //if there is an arg
+    //   this.towers = arg;
+    // } else {
+    //   this.towers = [ [3, 2, 1], [], [] ];
+    // }
+  }
 
-  isValidMove(startTowerIdx, endTowerIdx) {}
+  //methods can access or change properties of a class
+  //methods can create new properties
 
-  move(startTowerIdx, endTowerIdx) {}
+
+
+  isValidMove(startTowerIdx, endTowerIdx) {
+    if(startTowerIdx === endTowerIdx){
+      return false;
+    }
+
+    const startTower = this.towers[startTowerIdx];
+    const endTower = this.towers[endTowerIdx];
+
+    if(startTower === undefined || startTower.length === 0){
+      return false;
+    }
+
+    if(endTower.length === 0){
+      return true;
+    }
+    const startDisk = startTower[startTower.length -1];
+    const endDisk = endTower[endTower.length -1];
+
+    if(startDisk < endDisk){
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+  move(startTowerIdx, endTowerIdx) {
+    this.isValidMove();
+      const startTower = this.towers[startTowerIdx];
+      const endTower = this.towers[endTowerIdx];
+      let endDisk = startTower.pop(startTower.length -1);
+      endTower.push(endDisk);
+      if(endTowerIdx !== 0 || endTowerIdx !== undefined || startTowerIdx === 0){
+        return true;
+      } else {
+        return false;
+      }
+
+  }
 
   isWon() {}
 
@@ -43,6 +93,11 @@ class HanoiGame {
       }
     });
   }
-}
+} //end of class Hanoi
+
+// let incomingArg = [ [], [3, 2, 1], [] ];
+// const newHanoiGame = new HanoiGame();
+//   newHanoiGame.prototype.isValidMove();
+
 
 module.exports = HanoiGame;
