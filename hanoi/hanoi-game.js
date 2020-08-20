@@ -1,5 +1,29 @@
 class HanoiGame {
-  constructor() {}
+  constructor(arg = [ [3, 2, 1], [], [] ] ) {
+    //console.log(this.arg)
+    //this.towers();
+    this.towers = arg;
+    // if (arg) { //if there is an arg
+    //   this.towers = arg;
+    // } else {
+    //   this.towers = [ [3, 2, 1], [], [] ];
+    // }
+  }
+
+  //methods can access or change properties of a class
+  //methods can create new properties
+
+  //1. should have a "towers" property
+  // towers() {
+  //   if (this.arg) { //if there is an arg
+  //     return this.arg;
+  //   } else { //init w/o arg
+  //     // for (let i = 1; i <= 3; i++) {
+  //     //   newArray.push(...i);
+  //     // }
+  //     return [ [3, 2, 1], [], [] ]
+  //   }
+  // };
 
   isValidMove(startTowerIdx, endTowerIdx) {}
 
@@ -43,6 +67,11 @@ class HanoiGame {
       }
     });
   }
-}
+} //end of class Hanoi
+
+// let incomingArg = [ [], [3, 2, 1], [] ];
+// const newHanoiGame = new HanoiGame();
+//   newHanoiGame.towers();
+//   console.log(newHanoiGame.towers())
 
 module.exports = HanoiGame;
